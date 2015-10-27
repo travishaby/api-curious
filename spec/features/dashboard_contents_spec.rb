@@ -26,12 +26,12 @@ RSpec.feature "DashboardContents", type: :feature do
     expect(page).to have_css("#state-politicians")
     expect(page).to have_css("#national-politicians")
     within("#state-politicians") do
-      expect(page).to have_content("Your State Representatives")
-      expect(page).to have_content("Your State Senators")
+      expect(page).to have_content("State Representatives")
+      expect(page).to have_content("State Senators")
     end
     within("#national-politicians") do
-      expect(page).to have_content("Your National Representatives")
-      expect(page).to have_content("Your National Senators")
+      expect(page).to have_content("National Representatives")
+      expect(page).to have_content("National Senators")
     end
   end
 
