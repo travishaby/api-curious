@@ -1,7 +1,5 @@
 <% if current_user %>
-  <h1>Logged in as <%= current_user.screen_name %></h1>
-  <h3><%= link_to "Logout", logout_path, method: :delete %></h3>
+  <%= render partial: "welcome/logged_in" %>
 <% else %>
-  <%= link_to "Login", login_path %>
+  <%= render partial: "welcome/guest" %>
 <% end %>
-<p>This is where all sorts of cool information will be displayed</p>
