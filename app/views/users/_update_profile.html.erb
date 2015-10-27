@@ -1,0 +1,17 @@
+<div class="container center" id="update-address-notice">
+  <div class="well text-center">
+    <h3>Almost there!</h3><br>
+    <h4>Please update your profile with your address
+    to see information about your area's politicians:</h4>
+    <br>
+    <%= bootstrap_form_for :address,
+                          url: user_path(current_user),
+                          method: :put do |f| %>
+    <%= f.text_field :street %>
+    <%= f.text_field :city %>
+    <%= f.text_field :state %>
+    <%= f.text_field :zip_code %>
+    <%= f.submit "Update Profile" %>
+    <% end %>
+  </div>
+</div>
