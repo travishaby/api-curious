@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/edit'
+
+  get 'users/update'
+
   root "welcome#index"
 
   get "/auth/twitter", as: :login

@@ -29,6 +29,10 @@ def login_user
   click_link "Login"
 end
 
+def user
+  @user ||= User.find_by(screen_name: "travishaby")
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
