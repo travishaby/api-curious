@@ -1,2 +1,7 @@
-<h1>Welcome!</h1>
+<% if current_user %>
+  <h1>Logged in as <%= current_user.screen_name %></h1>
+  <h3><%= link_to "Logout", logout_path, method: :delete %></h3>
+<% else %>
+  <%= link_to "Login", login_path %>
+<% end %>
 <p>This is where all sorts of cool information will be displayed</p>
