@@ -23,6 +23,12 @@ def stub_omniauth
     })
 end
 
+def login_user
+  visit "/"
+  expect(page.status_code).to eq(200)
+  click_link "Login"
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
