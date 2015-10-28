@@ -1,4 +1,6 @@
-<% if current_user %>
+<% if current_user && current_user.address.nil? %>
+  <%= render partial: "users/update_profile" %>
+<% elsif current_user %>
   <%= render partial: "welcome/logged_in" %>
 <% else %>
   <%= render partial: "welcome/guest" %>

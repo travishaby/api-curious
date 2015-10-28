@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
+  has_one :address
 
   def self.from_omniauth(auth_info)
     where(uid: auth_info[:uid]).first_or_create do |new_user|

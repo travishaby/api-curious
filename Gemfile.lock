@@ -46,6 +46,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.5.0)
@@ -81,6 +82,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
+    hurley (0.2)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -222,11 +224,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bootstrap_form
   byebug
   capybara
   coffee-rails (~> 4.1.0)
   congress
   factory_girl
+  geocoder
+  hurley
   jbuilder (~> 2.0)
   jquery-rails
   launchy

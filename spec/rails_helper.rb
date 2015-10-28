@@ -29,6 +29,27 @@ def login_user
   click_link "Login"
 end
 
+def login_user_with_address
+  visit "/"
+  expect(page.status_code).to eq(200)
+  click_link "Login"
+  address
+  visit "/"
+end
+
+def user
+  @user ||= User.find_by(screen_name: "travishaby")
+end
+
+def address
+  user
+  @address ||= Address.find_or_create_by(street: "3216 St. Paul St.", city: "Denver", state: "CO", zip_code: "80205", user_id: user.id)
+end
+
+def mock_geocoder
+  
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

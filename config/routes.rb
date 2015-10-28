@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/auth/twitter/callback", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  resources :users, only: [:update]
 end
