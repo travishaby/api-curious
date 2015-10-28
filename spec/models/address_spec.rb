@@ -40,5 +40,17 @@ RSpec.describe Address, type: :model do
                             state: "CO")
       expect(address).to_not be_valid
     end
+
+    it "must be unique in total" do
+      address = Address.create(street: "3216 St. Paul St.",
+                            city: "Denver",
+                            state: "CO",
+                            zip_code: "80205")
+      address2 = Address.new(street: "3216 St. Paul St.",
+                            city: "Denver",
+                            state: "CO",
+                            zip_code: "80205")
+      expect(address2).to_not be_valid
+    end
   end
 end
