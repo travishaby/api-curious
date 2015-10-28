@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/travishaby/api-curious.png?label=ready&title=Ready)](https://waffle.io/travishaby/api-curious)
 # API Curious
 
 ##Project Description
