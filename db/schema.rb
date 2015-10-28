@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027211642) do
+ActiveRecord::Schema.define(version: 20151028233044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "address_legislators", force: :cascade do |t|
+    t.integer  "address_id"
+    t.integer  "legislator_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "address_legislators", ["address_id"], name: "index_address_legislators_on_address_id", using: :btree
+  add_index "address_legislators", ["legislator_id"], name: "index_address_legislators_on_legislator_id", using: :btree
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -24,9 +34,26 @@ ActiveRecord::Schema.define(version: 20151027211642) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "sha"
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
+
+  create_table "legislators", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "leg_id"
+    t.string   "transparencydata_id"
+    t.string   "level"
+    t.string   "chamber"
+    t.string   "party"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "sha"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -40,5 +67,7 @@ ActiveRecord::Schema.define(version: 20151027211642) do
     t.float    "longitude"
   end
 
+  add_foreign_key "address_legislators", "addresses"
+  add_foreign_key "address_legislators", "legislators"
   add_foreign_key "addresses", "users"
 end
