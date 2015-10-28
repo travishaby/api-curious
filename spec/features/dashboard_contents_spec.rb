@@ -4,7 +4,7 @@ RSpec.feature "DashboardContents", type: :feature do
 
   before do
     stub_omniauth
-    login_user
+    login_user_with_address
   end
 
   scenario "navbar has appropriate links" do
