@@ -8,7 +8,7 @@ class LocationLegislatorsCreator
 
   def create_state_legislators
     service.state_legislators_by_location(current_user).each do |params|
-      legislator = Legislator.create(full_name: params[:full_name],
+      legislator = Legislator.find_or_create_by(full_name: params[:full_name],
                                     first_name: params[:first_name],
                                      last_name: params[:last_name],
                                         leg_id: params[:first_name],
@@ -20,7 +20,6 @@ class LocationLegislatorsCreator
 
       associate_user_with_legislator(legislator)
     end
-
   end
 
   def associate_user_with_legislator(legislator)
