@@ -5,7 +5,6 @@ RSpec.feature "UpdateProfileWithZipCodes", type: :feature do
   before do
     stub_omniauth
     login_user
-    mock_geocoder
   end
 
   scenario "user without address visits main page" do
