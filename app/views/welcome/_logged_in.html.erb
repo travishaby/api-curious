@@ -3,23 +3,31 @@
     <h1><%= current_user.screen_name.capitalize %>'s Policurious dashboard</h1>
   </div>
 </div>
-<div class="row text-center" id="politicians-row">
-  <div class="col-sm-4 col-sm-offset-1" id="state-politicians">
+<div class="row text-center" id="legislators-row">
+  <div class="col-sm-4 col-sm-offset-1" id="state-legislators">
     <h3>State Level</h3>
     <div class="row well well-sm" id="State Representatives">
       <h4>State Representatives</h4>
-      <p>
-        Bacon ipsum dolor amet chicken tri-tip pork belly short loin bresaola meatloaf. Brisket pig beef turkey, ball tip fatback picanha drumstick cupim rump. Flank boudin sirloin, pig chicken short loin short ribs t-bone ball tip doner salami kevin. Porchetta prosciutto picanha, strip steak pancetta pork loin venison ribeye shoulder tail boudin filet mignon beef.
-      </p>
+      <% if current_user.state_representatives %>
+        <% current_user.state_representatives.each do |representative| %>
+        <p>
+          <%= representative.full_name  %>
+        </p>
+        <% end %>
+      <% end %>
     </div>
     <div class="row well well-sm" id="State Senators">
       <h4>State Senators</h4>
-      <p>
-        Shank biltong fatback, shoulder capicola ball tip alcatra rump shankle. Jowl pastrami pork tongue ball tip. Jowl pancetta shankle doner, ribeye venison drumstick prosciutto salami pig cow tail boudin. Chuck boudin short loin porchetta hamburger, spare ribs doner meatball alcatra biltong drumstick ham hock fatback jerky picanha. Pastrami pork chop bacon, tail pork kevin pig swine salami cupim biltong flank t-bone doner ball tip. Fatback shoulder sausage tri-tip pork belly capicola picanha cupim meatball strip steak. Alcatra cow jerky salami fatback shank.
-      </p>
+      <% if current_user.state_senators %>
+        <% current_user.state_senators.each do |senator| %>
+        <p>
+          <%= senator.full_name  %>
+        </p>
+        <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="col-sm-4 col-sm-offset-2" id="national-politicians">
+  <div class="col-sm-4 col-sm-offset-2" id="national-congresspeople">
     <h3>National Level</h3>
     <div class="row well well-sm" id="National Representatives">
       <h4>National Representatives</h4>

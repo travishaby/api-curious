@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     if @address.save
       current_user.address = @address
       @address.convert_to_lat_long_for_user
+      create_state_legislators
       flash[:success] = "Your address was successfully updated!"
     else
       flash[:error] = "Your address was not updated. Please try again."

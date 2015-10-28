@@ -33,8 +33,11 @@ def login_user_with_address
   visit "/"
   expect(page.status_code).to eq(200)
   click_link "Login"
-  address
-  visit "/"
+  fill_in "address[street]", with: "3216 St. Paul St."
+  fill_in "address[city]", with: "Denver"
+  fill_in "address[state]", with: "CO"
+  fill_in "address[zip_code]", with: "80205"
+  click_on "Update Profile"
 end
 
 def user
@@ -43,8 +46,19 @@ end
 
 def address
   user
+  user.update_attributes(latitude: 39.762471, longitude: -104.950796)
   @address ||= Address.find_or_create_by(street: "3216 St. Paul St.", city: "Denver", state: "CO", zip_code: "80205", user_id: user.id)
 end
+
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.allow_http_connections_when_no_cassette = true
+end
+
 
 ActiveRecord::Migration.maintain_test_schema!
 

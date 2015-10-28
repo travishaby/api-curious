@@ -26,11 +26,13 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "factory_girl"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
-group :development do
-  gem "web-console", "~> 2.0"
-  gem "spring"
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

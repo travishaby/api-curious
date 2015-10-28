@@ -23,13 +23,13 @@ RSpec.feature "DashboardContents", type: :feature do
   end
 
   scenario "body has columns for national and local data" do
-    expect(page).to have_css("#state-politicians")
-    expect(page).to have_css("#national-politicians")
-    within("#state-politicians") do
+    expect(page).to have_css("#state-legislators")
+    expect(page).to have_css("#national-congresspeople")
+    within("#state-legislators") do
       expect(page).to have_content("State Representatives")
       expect(page).to have_content("State Senators")
     end
-    within("#national-politicians") do
+    within("#national-congresspeople") do
       expect(page).to have_content("National Representatives")
       expect(page).to have_content("National Senators")
     end
