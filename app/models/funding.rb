@@ -18,6 +18,6 @@ class Funding < OpenStruct
   end
 
   def self.specific_funding_data(fec_ids, key)
-    all_funding_data(fec_ids).reduce(0) {|sum, data| sum + data[key].to_f }.to_s
+    all_funding_data(fec_ids).reduce(0) {|sum, data| sum + data[key].to_f }
   end
 end
