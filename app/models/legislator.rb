@@ -38,3 +38,4 @@ class Legislator < ActiveRecord::Base
     eval(fec_ids)
   end
 end
+ 

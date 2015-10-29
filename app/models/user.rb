@@ -37,5 +37,4 @@ class User < ActiveRecord::Base
   def national_senators
     legislators.where(level: "national", chamber: "senate")
   end
-
 end

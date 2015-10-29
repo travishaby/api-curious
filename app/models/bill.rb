@@ -10,4 +10,14 @@ class Bill < OpenStruct
       service.national_bills(params[:bioguide_id]).map {|bill| Bill.new(bill)}
     end
   end
+
+  def extant_title
+    short_title || official_title
+  end
+
+  def link
+    if urls
+      urls[:opencongress]
+    end
+  end
 end

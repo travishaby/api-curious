@@ -4,7 +4,8 @@
     <h4>Please update your profile with your address
     to see information about your area's politicians:</h4>
     <br>
-    <%= bootstrap_form_for :address,
+    <%= bootstrap_form_for @address,
+                          inline_errors: true,
                           url: user_path(current_user),
                           method: :put do |f| %>
     <%= f.text_field :street %>

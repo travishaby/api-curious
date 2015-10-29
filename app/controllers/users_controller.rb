@@ -5,11 +5,10 @@ class UsersController < ApplicationController
       current_user.address = @address
       @address.convert_to_lat_long_for_user
       create_legislators
-      flash[:success] = "Your address was successfully updated!"
+      redirect_to root_path
     else
-      flash[:error] = "Your address was not updated. Please try again."
+      render "welcome/index"
     end
-    redirect_to root_path
   end
 
   private

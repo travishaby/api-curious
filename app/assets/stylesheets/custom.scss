@@ -2,15 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  background: url(image-path("stardust.png"));
+}
+
+.party-R {
+  color: red;
+}
+
+.party-D {
+  color: blue;
 }
 
 .portfolio-item {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.shadow {
+  box-shadow: 5px 5px 3px #888888;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.small-space {
+  margin-bottom: 30px;
 }
 
 footer {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 #politicians-row {
