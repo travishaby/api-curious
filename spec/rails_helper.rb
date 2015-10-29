@@ -41,7 +41,9 @@ def login_user_with_address
 end
 
 def user
-  @user ||= User.find_by(screen_name: "travishaby")
+  @user ||= User.find_or_create_by(screen_name: "travishaby",
+                                      latitude: 39.762471,
+                                     longitude: -104.950796)
 end
 
 def address
