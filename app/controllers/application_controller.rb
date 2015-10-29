@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def create_state_legislators
-    LocationLegislatorsCreator.new(current_user).create_state_legislators
+  def create_legislators
+    LocationLegislatorsCreator.new(current_user).create_legislators
   end
-  
 end

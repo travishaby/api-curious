@@ -7,6 +7,10 @@ class Legislator < ActiveRecord::Base
   has_many :address_legislators
 
   def generate_sha
-    self.sha = Digest::SHA1.hexdigest(self.full_name.to_s + self.leg_id.to_s)
+    self.sha = Digest::SHA1.hexdigest(self.first_name.to_s + self.votesmart_id.to_s)
+  end
+
+  def combined_name
+    first_name + " " + last_name
   end
 end

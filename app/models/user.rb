@@ -25,4 +25,17 @@ class User < ActiveRecord::Base
   def state_senators
     legislators.where(level: "state", chamber: "upper")
   end
+
+  def national_legislators
+    legislators.where(level: "national")
+  end
+
+  def national_representatives
+    legislators.where(level: "national", chamber: "house")
+  end
+
+  def national_senators
+    legislators.where(level: "national", chamber: "senate")
+  end
+
 end
