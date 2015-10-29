@@ -5,7 +5,7 @@ RSpec.feature "DashboardShowsBillsPassed", type: :feature, vcr: true do
     stub_omniauth
     login_user_with_address
     visit root_path
-    save_and_open_page
+
     within("#state-legislators") do
       expect(page).to have_content("Michael")
       within("#johnston-bills") do
