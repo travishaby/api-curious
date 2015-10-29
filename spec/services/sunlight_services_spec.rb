@@ -34,4 +34,22 @@ RSpec.describe SunlightService, type: :model, vcr: true do
     end
   end
 
+  context "national funding request" do
+    it "returns funding for a given candidate given one fec_id" do
+      funding_sources = service.
+        national_congressperson_funding(["H0CO04122"])
+          #Cory Gardner
+      total_contributions = funding_sources.first[:total_contributions]
+      expect(total_contributions).to eq("11199689.00")
+    end
+
+    it "returns funding for a given candidate given multiple fec_ids" do
+      funding_sources = service.
+        national_congressperson_funding(["H0CO04122", "H0CO04122"])
+          #Cory Gardner
+      second_source_total = funding_sources.second[:total_contributions]
+      expect(second_source_total).to eq("11199689.00")
+    end
+  end
+
 end
