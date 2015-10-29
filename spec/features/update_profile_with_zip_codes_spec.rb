@@ -23,7 +23,7 @@ RSpec.feature "UpdateProfileWithZipCodes", type: :feature do
     fill_in "address[state]", with: "CO"
     fill_in "address[zip_code]", with: "80205"
     click_on "Update Profile"
-    
+
     expect(current_path).to eq(root_path)
     expect(page).to have_css("#state-legislators")
     expect(page).to have_css("#national-congresspeople")

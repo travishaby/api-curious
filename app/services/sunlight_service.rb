@@ -40,5 +40,4 @@ class SunlightService
     connections = [@state_connection, @national_connection, @funding_connection]
     connections.each {|conn| conn.query[:apikey] = ENV["SUNLIGHT_API_KEY"]}
   end
-
 end
