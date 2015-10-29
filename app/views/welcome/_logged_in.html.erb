@@ -8,38 +8,38 @@
     <h3>State Level</h3>
     <div class="row well well-sm" id="State Representatives">
       <h4>State Representatives</h4>
-      <% if current_user.state_representatives %>
-        <% current_user.state_representatives.each do |representative| %>
-        <p>
-          <%= representative.full_name  %>
-        </p>
-        <% end %>
+      <% current_user.state_representatives.each do |representative| %>
+      <p>
+        <%= representative.full_name  %>
+      </p>
       <% end %>
     </div>
     <div class="row well well-sm" id="State Senators">
       <h4>State Senators</h4>
-      <% if current_user.state_senators %>
-        <% current_user.state_senators.each do |senator| %>
+      <% current_user.state_senators.each do |senator| %>
         <p>
           <%= senator.full_name  %>
         </p>
-        <% end %>
       <% end %>
     </div>
   </div>
   <div class="col-sm-4 col-sm-offset-2" id="national-congresspeople">
     <h3>National Level</h3>
-    <div class="row well well-sm" id="National Representatives">
+    <div class="row well well-sm" id="national-representatives">
       <h4>National Representatives</h4>
-      <p>
-        Pork loin turkey porchetta spare ribs hamburger venison ball tip filet mignon bresaola frankfurter. Hamburger filet mignon strip steak tri-tip ground round tenderloin. Strip steak shank doner tail kielbasa tongue. Pork chop flank turkey, ground round biltong cupim fatback capicola frankfurter beef salami. Andouille landjaeger chicken tri-tip shoulder swine cow. Ground round andouille shoulder jowl hamburger cow filet mignon.
-      </p>
+      <% current_user.national_representatives.each do |representative| %>
+        <p>
+          <%= representative.combined_name %>
+        </p>
+      <% end %>
     </div>
-    <div class="row well well-sm" id="National Senators">
+    <div class="row well well-sm" id="national-senators">
       <h4>National Senators</h4>
-      <p>
-        Doner landjaeger turducken frankfurter spare ribs pork. Andouille turkey ham strip steak bresaola, pastrami brisket pork belly porchetta kielbasa drumstick prosciutto. Leberkas sausage beef ribs, jowl porchetta venison short ribs. Boudin spare ribs sausage, pastrami turducken short ribs frankfurter prosciutto picanha capicola. Sirloin rump cow cupim picanha pig.
-      </p>
+      <% current_user.national_senators.each do |senator| %>
+        <p>
+          <%= senator.combined_name %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>
