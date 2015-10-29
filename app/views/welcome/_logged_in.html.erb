@@ -1,27 +1,27 @@
 <div class="row">
-  <div class="col-lg-12 text-center">
-    <h1><%= current_user.screen_name.capitalize %>'s Policurious dashboard</h1>
+  <div class="col-lg-offset-3 col-lg-6 text-center small-space well shadow">
+    <h1><%= current_user.screen_name.capitalize %>'s Policurious Dashboard</h1>
   </div>
 </div>
 <div class="row text-center" id="legislators-row">
   <div class="col-sm-4 col-sm-offset-1" id="state-legislators">
-    <h3>State Level</h3>
-    <div class="row well well-sm" id="State Representatives">
+    <h3 class="well grey-well shadow">State Level</h3>
+    <div class="row well well-sm shadow" id="State Representatives">
       <h4><strong>State Representative</strong></h4>
       <% current_user.state_representatives.each do |representative| %>
       <div>
-        <h4><%= representative.full_name  %></h4>
-        <div class="">
-          <h5>Funding:</h5>
-          <ul id="<%= representative.last_name.parameterize %>-funding">
-              <li>Funding data not provided for state legislators.</li>
+        <h4 class="party-<%= representative.party[0] %> small-space"><%= representative.full_name  %></h4>
+        <div class="small-space">
+          <h5>Funding Data:</h5>
+          <ul class="text-left list-group" id="<%= representative.last_name.parameterize %>-funding">
+              <li class="list-group-item">Funding data not provided for state legislators.</li>
           </ul>
         </div>
-        <div class="">
+        <div class="small-space">
           <h5>Bills Sponsored:</h5>
-          <ul id="<%= representative.last_name.parameterize %>-bills">
+          <ul class="text-left list-group" id="<%= representative.last_name.parameterize %>-bills">
             <% representative.bills.each do |bill| %>
-              <li>Session <%= bill.session %>: <%= bill.title %></li>
+              <li  class="list-group-item"><span class="underline">Session <%= bill.session %>:</span>  <%= bill.title %></li>
             <% end %>
           </ul>
         </div>
@@ -32,18 +32,18 @@
       <h4><strong>State Senator</strong></h4>
       <% current_user.state_senators.each do |senator| %>
         <div>
-          <h4><%= senator.full_name %></h4>
-          <div class="">
-            <h5>Funding:</h5>
-            <ul id="<%= senator.last_name.parameterize %>-funding">
-                <li>Funding data not provided for state legislators.</li>
+          <h4 class="party-<%= senator.party[0] %> small-space"><%= senator.full_name %></h4>
+          <div class="small-space">
+            <h5>Funding Data:</h5>
+            <ul class="text-left list-group" id="<%= senator.last_name.parameterize %>-funding">
+                <li class="list-group-item">Funding data not provided for state legislators.</li>
             </ul>
           </div>
-          <div class="">
+          <div class="small-space">
             <h5>Bills Sponsored:</h5>
-            <ul id="<%= senator.last_name.parameterize %>-bills">
+            <ul class="text-left list-group" id="<%= senator.last_name.parameterize %>-bills">
               <% senator.bills.each do |bill| %>
-                <li>Session <%= bill.session %>: <%= bill.title %></li>
+                <li class="list-group-item"><span class="underline">Session <%= bill.session %>:</span>  <%= bill.title %></li>
               <% end %>
             </ul>
           </div>
@@ -52,24 +52,24 @@
     </div>
   </div>
   <div class="col-sm-4 col-sm-offset-2" id="national-congresspeople">
-    <h3>National Level</h3>
-    <div class="row well well-sm" id="national-representatives">
+    <h3 class="well grey-well shadow">National Level</h3>
+    <div class="row well well-sm shadow" id="national-representatives">
       <h4><strong>National Representative</strong></h4>
       <% current_user.national_representatives.each do |representative| %>
         <div>
-          <h4><%= representative.combined_name %></h4>
-          <div class="">
+          <h4 class="party-<%= representative.party[0] %> small-space"><%= representative.combined_name %></h4>
+          <div class="small-space">
             <h5>Funding Data:</h5>
-            <ul id="<%= representative.last_name.parameterize %>-funding">
-              <li>Total contributions: $<%= number_with_delimiter(representative.total_contributions) %></li>
-              <li>Cash on hand: $<%= number_with_delimiter(representative.cash_on_hand) %></li>
+            <ul class="text-left list-group" id="<%= representative.last_name.parameterize %>-funding">
+              <li class="list-group-item">Total contributions: $<%= number_with_delimiter(representative.total_contributions) %></li>
+              <li class="list-group-item">Cash on hand: $<%= number_with_delimiter(representative.cash_on_hand) %></li>
             </ul>
           </div>
-          <div class="">
+          <div class="small-space">
             <h5>Bills Sponsored:</h5>
-            <ul id="<%= representative.combined_name.parameterize %>-bills">
+            <ul class="text-left list-group" id="<%= representative.combined_name.parameterize %>-bills">
               <% representative.bills.each do |bill| %>
-                <li>Congress <%= bill.congress %>: <%= bill.short_title || bill.official_title %></li>
+                <li class="list-group-item"><span class="underline">Congress <%= bill.congress %>:</span>  <a href="<%=bill.link%>"><%= bill.extant_title %></a></li>
               <% end %>
             </ul>
           </div>
@@ -80,26 +80,24 @@
       <h4><strong>National Senators</strong></h4>
       <% current_user.national_senators.each do |senator| %>
         <div>
-          <h4><%= senator.combined_name %></h4>
-          <div class="">
+          <h4 class="party-<%= senator.party[0] %> small-space"><%= senator.combined_name %></h4>
+          <div class="small-space">
             <h5>Funding Data:</h5>
-            <ul id="<%= senator.last_name.parameterize %>-funding">
-              <li>Total contributions: $<%= number_with_delimiter(senator.total_contributions) %></li>
-              <li>Cash on hand: $<%= number_with_delimiter(senator.cash_on_hand) %></li>
+            <ul class="text-left list-group" id="<%= senator.last_name.parameterize %>-funding">
+              <li class="list-group-item">Total contributions: $<%= number_with_delimiter(senator.total_contributions) %></li>
+              <li class="list-group-item">Cash on hand: $<%= number_with_delimiter(senator.cash_on_hand) %></li>
             </ul>
           </div>
-          <div class="">
+          <div class="small-space">
             <h5>Bills Sponsored:</h5>
-            <ul id="<%= senator.combined_name.parameterize %>-bills">
+            <ul class="text-left list-group" id="<%= senator.combined_name.parameterize %>-bills">
               <% senator.bills.each do |bill| %>
-                <li>Congress <%= bill.congress %>: <%= bill.short_title || bill.official_title %></li>
+                <li class="list-group-item"><span class="underline">Congress <%= bill.congress %>:</span>  <a href="<%=bill.link%>"><%= bill.extant_title %></a></li>
               <% end %>
             </ul>
           </div>
         </div>
       <% end %>
-      <br>
-      <br>
     </div>
   </div>
 </div>
