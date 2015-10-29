@@ -12,6 +12,7 @@ RSpec.feature "NationalPoliticiansDisplayeds", type: :feature, vcr: true do
     within("#national-congresspeople") do
       expect(page).to have_content("Cory")
       expect(page).to have_content("Bennet")
+      expect(page).to_not have_content("Michael Johnston")
     end
   end
 end

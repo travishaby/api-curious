@@ -27,6 +27,7 @@ class LocationLegislatorsCreator
       legislator = Legislator.find_or_create_by(first_name: params[:first_name],
                                      last_name: params[:last_name],
                                   votesmart_id: params[:votesmart_id].to_s,
+                                   bioguide_id: params[:bioguide_id],
                                        fec_ids: params[:fec_ids],
                                          level: "national",
                                          phone: params[:phone],
