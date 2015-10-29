@@ -13,7 +13,7 @@ class Address < ActiveRecord::Base
   belongs_to :user
 
   has_many :legislators, through: :address_legislators
-  has_many :address_legislators
+  has_many :address_legislators, dependent: :destroy
 
   def convert_to_lat_long_for_user
     if self.user
