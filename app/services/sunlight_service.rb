@@ -1,12 +1,11 @@
 class SunlightService
-  attr_reader :state_connection, :national_connection
+  attr_reader :state_connection, :national_connection, :funding_connection
 
   def initialize
     @state_connection ||= Hurley::Client.new("http://openstates.org/api/v1/")
     @national_connection ||= Hurley::Client.new("http://congress.api.sunlightfoundation.com/")
-
-    state_connection.query[:apikey] = ENV["SUNLIGHT_API_KEY"]
-    national_connection.query[:apikey] = ENV["SUNLIGHT_API_KEY"]
+    @funding_connection ||= Hurley::Client.new("http://realtime.influenceexplorer.com/api/")
+    set_connection_api_keys
   end
 
   def state_legislators_by_location(current_user)
@@ -25,10 +24,21 @@ class SunlightService
     parse(national_connection.get("bills?sponsor_id=#{bioguide_id}"))[:results]
   end
 
+  def national_congressperson_funding(fec_ids)
+    fec_ids.flat_map do |id|
+      parse(funding_connection.get("candidates/?format=json&page=1&page_size=10&fec_id=#{id}"))[:results]
+    end
+  end
+
   private
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def set_connection_api_keys
+    connections = [@state_connection, @national_connection, @funding_connection]
+    connections.each {|conn| conn.query[:apikey] = ENV["SUNLIGHT_API_KEY"]}
   end
 
 end
