@@ -34,4 +34,13 @@ RSpec.describe SunlightService, type: :model, vcr: true do
     end
   end
 
+  context "national funding request" do
+    it "returns funding for a given candidate given an fec_id" do
+      total_contributions = service.
+        national_legislator_funding("H0CO04122")[:total_contributions]
+          #Cory Gardner
+      expect(total_contributions).to eq(135135346)
+    end
+  end
+
 end
