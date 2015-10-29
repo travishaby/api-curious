@@ -13,4 +13,12 @@ class Legislator < ActiveRecord::Base
   def combined_name
     first_name + " " + last_name
   end
+
+  def bills
+    if leg_id
+      Bill.where(leg_id: leg_id)
+    else
+      Bill.where(bioguide_id: bioguide_id)
+    end
+  end
 end

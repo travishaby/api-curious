@@ -17,9 +17,18 @@ class SunlightService
     parse(national_connection.get("legislators/locate?latitude=#{current_user.latitude.to_s}&longitude=#{current_user.longitude.to_s}"))[:results]
   end
 
+  def state_bills(leg_id)
+    parse(state_connection.get("bills?sponsor_id=#{leg_id}"))
+  end
+
+  def national_bills(bioguide_id)
+    parse(national_connection.get("bills?sponsor_id=#{bioguide_id}"))[:results]
+  end
+
   private
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
+
 end
