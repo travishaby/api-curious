@@ -12,6 +12,12 @@
       <div>
         <h4><%= representative.full_name  %></h4>
         <div class="">
+          <h5>Funding:</h5>
+          <ul id="<%= representative.last_name.parameterize %>-funding">
+              <li>Funding data not provided for state legislators.</li>
+          </ul>
+        </div>
+        <div class="">
           <h5>Bills Sponsored:</h5>
           <ul id="<%= representative.last_name.parameterize %>-bills">
             <% representative.bills.each do |bill| %>
@@ -27,6 +33,12 @@
       <% current_user.state_senators.each do |senator| %>
         <div>
           <h4><%= senator.full_name %></h4>
+          <div class="">
+            <h5>Funding:</h5>
+            <ul id="<%= senator.last_name.parameterize %>-funding">
+                <li>Funding data not provided for state legislators.</li>
+            </ul>
+          </div>
           <div class="">
             <h5>Bills Sponsored:</h5>
             <ul id="<%= senator.last_name.parameterize %>-bills">
@@ -47,6 +59,13 @@
         <div>
           <h4><%= representative.combined_name %></h4>
           <div class="">
+            <h5>Funding Data:</h5>
+            <ul id="<%= representative.last_name.parameterize %>-funding">
+              <li>Total contributions: $<%= number_with_delimiter(representative.total_contributions) %></li>
+              <li>Cash on hand: $<%= number_with_delimiter(representative.cash_on_hand) %></li>
+            </ul>
+          </div>
+          <div class="">
             <h5>Bills Sponsored:</h5>
             <ul id="<%= representative.combined_name.parameterize %>-bills">
               <% representative.bills.each do |bill| %>
@@ -63,6 +82,13 @@
         <div>
           <h4><%= senator.combined_name %></h4>
           <div class="">
+            <h5>Funding Data:</h5>
+            <ul id="<%= senator.last_name.parameterize %>-funding">
+              <li>Total contributions: $<%= number_with_delimiter(senator.total_contributions) %></li>
+              <li>Cash on hand: $<%= number_with_delimiter(senator.cash_on_hand) %></li>
+            </ul>
+          </div>
+          <div class="">
             <h5>Bills Sponsored:</h5>
             <ul id="<%= senator.combined_name.parameterize %>-bills">
               <% senator.bills.each do |bill| %>
@@ -72,6 +98,8 @@
           </div>
         </div>
       <% end %>
+      <br>
+      <br>
     </div>
   </div>
 </div>

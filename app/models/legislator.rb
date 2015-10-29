@@ -21,4 +21,20 @@ class Legislator < ActiveRecord::Base
       Bill.where(bioguide_id: bioguide_id)
     end
   end
+
+  def total_contributions
+    if fec_ids
+      Funding.total_contributions(parsed_fec_ids)
+    end
+  end
+
+  def cash_on_hand
+    if fec_ids
+      Funding.cash_on_hand(parsed_fec_ids)
+    end
+  end
+
+  def parsed_fec_ids
+    eval(fec_ids)
+  end
 end

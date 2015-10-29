@@ -21,4 +21,14 @@ RSpec.describe Legislator, type: :model do
       expect(legislator).to be_invalid
     end
   end
+
+  context "fec_ids are taken in as a string" do
+    it "parses fec_ids" do
+      legislator = Legislator.create(first_name: "Travis",
+                                   votesmart_id: "111111",
+                                        fec_ids: "[\"H6CO01141\"\,\"H6CO01141\"]")
+
+      expect(legislator.parsed_fec_ids).to eq(["H6CO01141", "H6CO01141"])
+    end
+  end
 end
