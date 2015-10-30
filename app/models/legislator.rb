@@ -23,19 +23,14 @@ class Legislator < ActiveRecord::Base
   end
 
   def total_contributions
-    if fec_ids
-      Funding.total_contributions(parsed_fec_ids)
-    end
+    Funding.total_contributions(parsed_fec_ids) if fec_ids
   end
 
   def cash_on_hand
-    if fec_ids
-      Funding.cash_on_hand(parsed_fec_ids)
-    end
+    Funding.cash_on_hand(parsed_fec_ids) if fec_ids
   end
 
   def parsed_fec_ids
     eval(fec_ids)
   end
 end
- 

@@ -8773,30 +8773,45 @@ button.close {
 body {
   padding-top: 70px;
   /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-  background-image: "stardust.png";
+  background: url("/assets/stardust-bb9231916d7d6cbaeea32bbcc04c5721fc22f05afcb4a6000d47a2d785c377ee.png");
 }
 
 /* line 9, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+.party-R {
+  color: red;
+}
+
+/* line 13, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+.party-D {
+  color: blue;
+}
+
+/* line 17, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
 .portfolio-item {
   margin-bottom: 25px;
 }
 
-/* line 13, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+/* line 21, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
 .shadow {
   box-shadow: 5px 5px 3px #888888;
 }
 
-/* line 17, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
-.small-space {
-  margin-bottom: 20px;
+/* line 25, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+.underline {
+  text-decoration: underline;
 }
 
-/* line 21, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+/* line 29, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+.small-space {
+  margin-bottom: 30px;
+}
+
+/* line 33, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
 footer {
   margin: 50px 0;
 }
 
-/* line 25, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
+/* line 37, /Users/travishaby/turing/module-3/projects/api-curious/app/assets/stylesheets/custom.scss */
 #politicians-row {
   padding-top: 40px;
 }

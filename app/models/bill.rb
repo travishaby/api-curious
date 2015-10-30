@@ -16,8 +16,6 @@ class Bill < OpenStruct
   end
 
   def link
-    if urls
-      urls[:opencongress]
-    end
+    urls[:opencongress] if urls
   end
 end
